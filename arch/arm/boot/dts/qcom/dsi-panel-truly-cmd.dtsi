@@ -101,12 +101,10 @@
 29 01 00 00 0a 00 02 E9 00
 29 01 00 00 0a 00 02 F2 00
 23 01 00 00 0a 00 02 D6 01//81 150814
-39 01 00 00 0a 00 02 35 00//set TE
 //	{0x39, 0, 0, 0,0, 2,{0x51,0xff}},//set PWM high
 //	{0x39, 0, 0, 0,0, 2,{0x53,0x2c}},//
 //	{0x39, 0, 0, 0,20, 2,{0x55,0x01}},//open PWM
-05 01 00 00 10 00 01 29                //SET DISLAY ON
-05 01 00 00 78 00 01 11];
+05 01 00 00 10 00 01 29];
 					/* write control brightness */
 
 		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
@@ -114,5 +112,13 @@
 					05 01 00 00 78 00 02 10 00];
 		qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
 		qcom,mdss-tear-check-sync-cfg-height = <2580>;
+		cm,mdss-livedisplay-cabc-cmd = [
+				39 01 00 00 0a 00 02 35 00];
+		cm,mdss-livedisplay-cabc-ui-value = <0x01>;
+		cm,mdss-livedisplay-cabc-image-value = <0x02>;
+		cm,mdss-livedisplay-cabc-video-value = <0x03>;
+		cm,mdss-livedisplay-command-state = "dsi_lp_mode";
+		cm,mdss-livedisplay-post-cmd = [
+				05 01 00 00 78 00 01 11];
 	};
 };

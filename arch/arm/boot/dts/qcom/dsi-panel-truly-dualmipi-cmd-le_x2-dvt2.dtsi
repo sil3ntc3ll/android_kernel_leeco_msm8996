@@ -917,13 +917,11 @@
 15 01 00 00 00 00 02 36 00
 15 01 00 00 00 00 02 51 ff
 15 01 00 00 00 00 02 53 2c
-15 01 00 00 00 00 02 55 01
 15 01 00 00 00 00 02 ff 10
 15 01 00 00 00 00 02 fb 01
 15 01 00 00 00 00 02 35 00
 29 01 00 00 00 00 03 44 09 d9
 05 01 00 00 78 00 01 11               //SET DISLAY ON
-05 01 00 00 20 00 01 29
 		];
 					/* write control brightness */
 		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
@@ -933,6 +931,14 @@
 		//qcom,mdss-tear-check-sync-cfg-height = <2580>;
 		dsi_truly_qhd_dualdsi_cmd_le_x2_config0: config0 {
 		qcom,split-mode = "pingpong-split";
+		cm,mdss-livedisplay-cabc-cmd = [
+				15 01 00 00 00 00 02 55 01];
+		cm,mdss-livedisplay-cabc-ui-value = <0x01>;
+		cm,mdss-livedisplay-cabc-image-value = <0x02>;
+		cm,mdss-livedisplay-cabc-video-value = <0x03>;
+		cm,mdss-livedisplay-command-state = "dsi_lp_mode";
+		cm,mdss-livedisplay-post-cmd = [
+				05 01 00 00 20 00 01 29];
 		};
 	};
 };

@@ -140,14 +140,20 @@
 					23 01 00 00 00 00 02 F2 00
 					23 01 00 00 00 00 02 51 FF
 					23 01 00 00 00 00 02 53 24
-					23 01 00 00 00 00 02 55 01
 					23 01 00 00 00 00 02 36 00
 					23 01 00 00 20 00 01 35
 
 					05 01 00 00 20 00 01 29               //SET DISLAY ON
-					05 01 00 00 78 00 01 11
 		];
 					/* write control brightness */
+		cm,mdss-livedisplay-cabc-cmd = [
+			23 01 00 00 00 00 02 55 01];
+		cm,mdss-livedisplay-cabc-ui-value = <0x01>;
+		cm,mdss-livedisplay-cabc-image-value = <0x02>;
+		cm,mdss-livedisplay-cabc-video-value = <0x03>;
+		cm,mdss-livedisplay-command-state = "dsi_lp_mode";
+		cm,mdss-livedisplay-post-cmd = [
+			05 01 00 00 78 00 01 11];
 		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 		qcom,mdss-dsi-off-command = [05 01 00 00 32 00 02 28 00
 					05 01 00 00 78 00 02 10 00];
