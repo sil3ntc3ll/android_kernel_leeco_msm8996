@@ -3216,6 +3216,8 @@ static void diag_debug_init(void)
 	 */
 	diag_debug_mask = DIAG_DEBUG_PERIPHERALS | DIAG_DEBUG_DCI |
 				DIAG_DEBUG_BRIDGE;
+	//enable all diag logs
+	diag_debug_mask = 0xff;
 }
 #else
 static void diag_debug_init(void)

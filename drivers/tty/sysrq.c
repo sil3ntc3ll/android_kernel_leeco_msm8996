@@ -47,6 +47,7 @@
 #include <linux/syscalls.h>
 #include <linux/of.h>
 #include <linux/rcupdate.h>
+#include <linux/panic_reason.h>
 
 #include <asm/ptrace.h>
 #include <asm/irq_regs.h>
@@ -135,13 +136,13 @@ static struct sysrq_key_op sysrq_unraw_op = {
 static void sysrq_handle_crash(int key)
 {
 	char *killer = NULL;
-
 	/* we need to release the RCU read lock here,
 	 * otherwise we get an annoying
 	 * 'BUG: sleeping function called from invalid context'
 	 * complaint from the kernel before the panic.
 	 */
 	rcu_read_unlock();
+	set_panic_trig_rsn(TRIG_SYSRQ_CRASH);
 	panic_on_oops = 1;	/* force panic */
 	wmb();
 	*killer = 1;
