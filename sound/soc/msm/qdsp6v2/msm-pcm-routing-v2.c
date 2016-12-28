@@ -2134,10 +2134,6 @@ static int msm_routing_ec_ref_rx_put(struct snd_kcontrol *kcontrol,
 		msm_route_ec_ref_rx = 16;
 		ec_ref_port_id = AFE_PORT_ID_QUATERNARY_MI2S_RX;
 		break;
-	case 16:
-		msm_route_ec_ref_rx = 16;
-		ec_ref_port_id = AFE_PORT_ID_TERTIARY_MI2S_RX;
-		break;
 	case 17:
 		msm_route_ec_ref_rx = 17;
 		ec_ref_port_id = AFE_PORT_ID_QUATERNARY_MI2S_RX;
@@ -5924,16 +5920,6 @@ static const struct snd_kcontrol_new tert_mi2s_rx_switch_mixer_controls =
 	0, 1, 0, msm_routing_get_tert_mi2s_switch_mixer,
 	msm_routing_put_tert_mi2s_switch_mixer);
 
-static const struct snd_kcontrol_new sec_mi2s_rx_switch_mixer_controls =
-	SOC_SINGLE_EXT("Switch", SND_SOC_NOPM,
-	0, 1, 0, msm_routing_get_switch_mixer,
-	msm_routing_put_switch_mixer);
-
-static const struct snd_kcontrol_new tert_mi2s_rx_switch_mixer_controls =
-	SOC_SINGLE_EXT("Switch", SND_SOC_NOPM,
-	0, 1, 0, msm_routing_get_switch_mixer,
-	msm_routing_put_switch_mixer);
-
 static const struct snd_kcontrol_new quat_mi2s_rx_switch_mixer_controls =
 	SOC_SINGLE_EXT("Switch", SND_SOC_NOPM,
 	0, 1, 0, msm_routing_get_quat_mi2s_switch_mixer,
@@ -7473,10 +7459,6 @@ static const struct snd_soc_dapm_widget msm_qdsp6_widgets[] = {
 				SND_SOC_NOPM, 0, 0,
 				sec_i2s_rx_voice_mixer_controls,
 				ARRAY_SIZE(sec_i2s_rx_voice_mixer_controls)),
-	SND_SOC_DAPM_MIXER("SEC_MI2S_RX_Voice Mixer",
-				SND_SOC_NOPM, 0, 0,
-				sec_mi2s_rx_voice_mixer_controls,
-				ARRAY_SIZE(sec_mi2s_rx_voice_mixer_controls)),
 	SND_SOC_DAPM_MIXER("SLIM_0_RX_Voice Mixer",
 				SND_SOC_NOPM, 0, 0,
 				slimbus_rx_voice_mixer_controls,

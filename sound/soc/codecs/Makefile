@@ -120,6 +120,7 @@ snd-soc-wcd9335-objs := wcd9335.o
 snd-soc-es9018-objs := es9018.o
 snd-soc-tfa98xx-objs := tfa_debug.o tfa9888_init.o tfa9897_init.o tfa9891_init.o tfa9890_init.o
 snd-soc-tfa98xx-objs += tfa9887B_init.o tfa9887_init.o tfa98xx.o tfa_dsp.o tfa_container.o
+snd-soc-wcd9xxx-objs := wcd9xxx-resmgr.o wcd9xxx-mbhc.o wcd9xxx-common.o
 snd-soc-wcd9xxx-v2-objs := wcd9xxx-common-v2.o wcd9xxx-resmgr-v2.o
 audio-ext-clock-objs := audio-ext-clk.o
 snd-soc-wcd-cpe-objs := wcd_cpe_services.o wcd_cpe_core.o
