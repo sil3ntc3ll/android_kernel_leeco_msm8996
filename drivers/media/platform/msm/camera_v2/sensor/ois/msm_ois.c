@@ -283,7 +283,7 @@ static int32_t msm_ois_vreg_control(struct msm_ois_ctrl_t *o_ctrl,
 static int32_t msm_ois_power_down(struct msm_ois_ctrl_t *o_ctrl)
 {
 	int32_t rc = 0;
-	enum msm_sensor_power_seq_gpio_t gpio;
+	// enum msm_sensor_power_seq_gpio_t gpio;
 
 	CDBG("Enter\n");
 
@@ -647,7 +647,7 @@ static long msm_ois_subdev_ioctl(struct v4l2_subdev *sd,
 static int32_t msm_ois_power_up(struct msm_ois_ctrl_t *o_ctrl)
 {
 	int rc = 0;
-	enum msm_sensor_power_seq_gpio_t gpio;
+	// enum msm_sensor_power_seq_gpio_t gpio;
 
 	CDBG("%s called\n", __func__);
 	OISDBG("===>>> OIS power up");
